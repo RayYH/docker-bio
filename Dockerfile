@@ -13,6 +13,7 @@ RUN /tmp/install.sh --yes
 RUN echo 'eval "$(starship init bash)"' >> "$HOME/.bash_profile"
 RUN rm /tmp/install.sh
 
+RUN apt-get update
 RUN apt-get install tini
 RUN chmod +x /usr/bin/tini
 
