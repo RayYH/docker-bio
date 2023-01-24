@@ -7,8 +7,9 @@ LABEL description="bioinformatics base image"
 COPY environment.yml /opt/bioinformatics/environment.yml
 
 RUN curl -sS https://starship.rs/install.sh -o /tmp/install.sh
-RUN sh /tmp/install.sh --yes
-RUN echo 'eval "$(starship init bash)"' >> /etc/bash.bashrc
+RUN chmod /tmp/install.sh
+RUN /tmp/install.sh --yes
+# RUN echo 'eval "$(starship init bash)"' >> /etc/bash.bashrc
 RUN echo 'eval "$(starship init bash)"' >> "$HOME/.bash_profile"
 RUN rm /tmp/install.sh
 
