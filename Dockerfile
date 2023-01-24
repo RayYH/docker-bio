@@ -13,6 +13,9 @@ RUN /tmp/install.sh --yes
 RUN echo 'eval "$(starship init bash)"' >> "$HOME/.bash_profile"
 RUN rm /tmp/install.sh
 
+RUN apt-get install tini
+RUN chmod +x /usr/bin/tini
+
 RUN conda config --add channels conda-forge
 RUN conda config --add channels bioconda
 RUN conda env create -n bio --file /opt/bioinformatics/environment.yml
@@ -24,8 +27,6 @@ WORKDIR /workspace
 
 SHELL ["conda", "run", "--no-capture-output", "-n", "bio", "/bin/bash", "-c"]
 
-ENV apt-get install tini
-RUN chmod +x /usr/bin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
 CMD ["conda", "run", "--no-capture-output", "-n", "bio", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--port=9875", "--ServerApp.token=''", "--ServerApp.password=''", "--ServerApp.allow_origin=*"]
