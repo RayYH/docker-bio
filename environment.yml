@@ -1,0 +1,16 @@
+name: bio
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+  - biopython
+  - jupyterlab
+  - jupytext
+  - matplotlib
+  - numpy
+  - pandas
+  - scipy
+  - rpy2
+  - r-essentials
+  - r-gridextra

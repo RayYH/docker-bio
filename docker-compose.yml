@@ -1,0 +1,14 @@
+version: '3'
+services:
+  bio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: rayyounghong/bio:latest
+    container_name: bio
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    ports:
+      - "9875:9875/tcp"
+    restart: always
