@@ -1,9 +1,6 @@
 version: '3'
 services:
   bio:
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: rayyounghong/bio:latest
     container_name: bio
     volumes:
