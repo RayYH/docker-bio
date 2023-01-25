@@ -29,6 +29,7 @@ WORKDIR /workspace
 RUN echo 'eval "$(starship init bash)"' >> "$HOME/.bashrc"
 RUN conda config --set changeps1 False
 RUN conda clean --all
+RUN apt-get install nodejs -y
 RUN apt-get autoremove -y \
     && apt-get autoclean -y
 
@@ -36,4 +37,4 @@ SHELL ["conda", "run", "--no-capture-output", "-n", "bio", "/bin/bash", "-c"]
 
 ENTRYPOINT ["/usr/bin/tini", "--"]
 
-CMD ["conda", "run", "--no-capture-output", "-n", "bio", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--port=9875", "--ServerApp.token=''", "--ServerApp.password=''","--ServerApp.terminado_settings={'shell_command': ['/bin/bash']}", "--ServerApp.allow_origin=*"]
+CMD ["conda", "run", "--no-capture-output", "-n", "bio", "jupyter", "lab", "--ip=0.0.0.0", "--no-browser", "--allow-root", "--port=9875", "--ServerApp.token=''", "--ServerApp.password=''","--ServerApp.terminado_settings={'shell_command': ['/bin/bash']}", "--ServerApp.allow_origin=*", "--ServerApp.extra_static_paths=['/tmp/static']"]
