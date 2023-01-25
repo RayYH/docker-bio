@@ -37,5 +37,5 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-          repository: RayYH/docker-bio
+          repository: rayyounghong/bio
           short-description: ${{ github.event.repository.description }}
