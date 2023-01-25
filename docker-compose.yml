@@ -4,7 +4,8 @@ services:
     image: rayyounghong/bio:latest
     container_name: bio
     volumes:
-      - .:/workspace
+      - ./workspace:/workspace
+      - ./.jupyter:/root/.jupyter
     working_dir: /workspace
     ports:
       - "9875:9875/tcp"
