@@ -7,6 +7,7 @@ dependencies:
   - biopython
   - jupyterlab
   - jupytext
+  - jupyterlab-git
   - matplotlib
   - numpy
   - pandas
