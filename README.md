@@ -1,6 +1,8 @@
 # docker bio
 
-Docker image for some common tools when learning bioinformatics.
+Docker image contains some bioinformatics tools.
+
+![](./screenshot.jpg)
 
 ## Using Docker CLI
 
